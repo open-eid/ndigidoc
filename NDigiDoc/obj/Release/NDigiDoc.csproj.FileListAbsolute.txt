@@ -1,0 +1,21 @@
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\bin\Release\Crypto\ZLib\License.zlib.txt
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\bin\Release\NDigiDoc.dll
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\bin\Release\NDigiDoc.pdb
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\bin\Release\log4net.dll
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\bin\Release\Security.Cryptography.dll
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\bin\Release\Security.Cryptography.pdb
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\bin\Release\Security.Cryptography.xml
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\obj\Release\ResolveAssemblyReference.cache
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\obj\Release\NDigiDoc.dll
+C:\Users\John\Documents\Visual Studio 2010\Projects\NDigiDoc\NDigiDoc\obj\Release\NDigiDoc.pdb
+C:\Users\xp\work\NDigiDoc\NDigiDoc\bin\Release\Crypto\ZLib\License.zlib.txt
+C:\Users\xp\work\NDigiDoc\NDigiDoc\bin\Release\NDigiDoc.dll
+C:\Users\xp\work\NDigiDoc\NDigiDoc\bin\Release\NDigiDoc.pdb
+C:\Users\xp\work\NDigiDoc\NDigiDoc\bin\Release\log4net.dll
+C:\Users\xp\work\NDigiDoc\NDigiDoc\bin\Release\Security.Cryptography.dll
+C:\Users\xp\work\NDigiDoc\NDigiDoc\bin\Release\log4net.xml
+C:\Users\xp\work\NDigiDoc\NDigiDoc\bin\Release\Security.Cryptography.pdb
+C:\Users\xp\work\NDigiDoc\NDigiDoc\bin\Release\Security.Cryptography.xml
+C:\Users\xp\work\NDigiDoc\NDigiDoc\obj\Release\ResolveAssemblyReference.cache
+C:\Users\xp\work\NDigiDoc\NDigiDoc\obj\Release\NDigiDoc.dll
+C:\Users\xp\work\NDigiDoc\NDigiDoc\obj\Release\NDigiDoc.pdb

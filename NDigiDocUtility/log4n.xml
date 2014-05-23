@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<log4net>
+
+  <appender name="Console" type="log4net.Appender.ConsoleAppender">
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%-5level %logger %ndc - %message%newline" />
+    </layout>
+  </appender>
+
+  <appender name="RollingFile" type="log4net.Appender.RollingFileAppender">
+    <file value="ndigidoc.log" />
+    <appendToFile value="true" />
+    <maximumFileSize value="5MB" />
+
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%-5level %logger %ndc - %message%newline" />
+    </layout>
+  </appender>
+
+  <root>
+    <!-- Global logging level <level value="ERROR" /> -->
+    <appender-ref ref="Console" />
+    <appender-ref ref="RollingFile" />
+  </root>
+
+  <!-- Class specific logging level -->
+  <logger name="NDigiDoc.CDoc">
+    <level value="DEBUG" />
+  </logger>
+</log4net>
