@@ -321,13 +321,13 @@ namespace NDigiDoc
                     GenerateEncryptionProperties(plainData, uriOrNull);
                 }
 
-                var compressedData = Zlib.Compress(plainData);
-                LogFirst17Bytes("First 17 bytes or less of compressed data: ", compressedData);
+                //var compressedData = Zlib.Compress(plainData);
+                //LogFirst17Bytes("First 17 bytes or less of compressed data: ", compressedData);
 
-                ANSIX923.Addpadding(ref compressedData); // legacy reasons
+                ANSIX923.Addpadding(ref plainData); // legacy reasons
 
                 byte[] sessionKey = null;
-                var encData = Crypto.Aes.Encrypt(compressedData, ref sessionKey);
+                var encData = Crypto.Aes.Encrypt(plainData, ref sessionKey);
                 LogFirst17Bytes("First 17 bytes or less of compressed data + ANSI padding with AES CBC 128 encryption: ", encData);
                 LogFirst17Bytes("Generated transport key: ", sessionKey);
 
@@ -335,7 +335,7 @@ namespace NDigiDoc
                 var encDataXml = new EncryptedData();
 
                 SetEncryptionProperties(encDataXml);
-                SetEncDataXmlAttributes(encDataXml);
+                SetEncDataXmlAttributes(encDataXml, uriOrNull);
                 encDataXml.CipherData = new CipherData(encData);
                 
                 // Generate encrypted transport keys for recipients
@@ -377,7 +377,7 @@ namespace NDigiDoc
                 }
 
                 EncryptionProperties[CDoc.ENC_PROP_FILE_NAME] = fileName;
-                EncryptionProperties[CDoc.ENC_PROP_ORIG_MIMETYPE] = mimeType;
+                //EncryptionProperties[CDoc.ENC_PROP_ORIG_MIMETYPE] = mimeType;
             }
             EncryptionProperties[CDoc.ENC_PROP_ORIG_SIZE] = data.Length.ToString();
         }
@@ -490,11 +490,25 @@ namespace NDigiDoc
             }
         }
 
-        private void SetEncDataXmlAttributes(EncryptedData encDataXml)
+        private void SetEncDataXmlAttributes(EncryptedData encDataXml, string fileUriOrNull)
         {
             encDataXml.Encoding = "UTF-8";
             encDataXml.EncryptionMethod = new EncryptionMethod(EncryptedXml.XmlEncAES128Url);
-            encDataXml.MimeType = MIME_TYPE_ZLIB;
+            //encDataXml.MimeType = MIME_TYPE_ZLIB;
+            if (fileUriOrNull != null)
+            {
+                string fileName = fileUriOrNull.Split('\\', '/').Last();
+                string extension = fileName.Split('.').Last();
+                string mimeType = null;
+
+                var valueReceived = MimeTypes.MimeTypesCol.TryGetValue(extension, out mimeType);
+                if (!valueReceived)
+                {
+                    MimeTypes.MimeTypesCol.TryGetValue("txt", out mimeType);
+                }
+
+                encDataXml.MimeType = mimeType;
+            }
         }
 
         private void SetEncryptionProperties(EncryptedData encDataXml)

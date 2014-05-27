@@ -34,6 +34,8 @@ namespace NDigiDoc
                                                                        {"css", "text/css"},
                                                                        {"dcr", "application/x-director"},
                                                                        {"ddoc", "http://www.sk.ee/DigiDoc/v1.3.0/digidoc.xsd"},
+                                                                       {"bdoc", "application/vnd.etsi.asic-e+zip"},
+                                                                       {"asice", "application/vnd.etsi.asic-e+zip"},
                                                                        {"dif", "video/x-dv"},
                                                                        {"dir", "application/x-director"},
                                                                        {"djv", "image/vnd.djvu"},
