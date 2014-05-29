@@ -221,7 +221,7 @@ namespace NDigiDoc
         /// <exception cref="RecipientNotFoundException" />
         /// <param name="privateKey"></param>
         /// <returns></returns>
-        public string Decrypt(X509Certificate2 privateKey)
+        public byte[] Decrypt(X509Certificate2 privateKey)
         {
             try
             {
@@ -249,11 +249,11 @@ namespace NDigiDoc
                 {
                     var payloadDecompressed = Zlib.Decompress(payload);
                     _logger.Debug("Decompressed .. Decoding finished");
-                    return Encoding.UTF8.GetString(payloadDecompressed);
+                    return payloadDecompressed;
                 }
 
 
-                return Encoding.UTF8.GetString(payload);
+                return payload;
             } 
             catch(Exception up)
             {

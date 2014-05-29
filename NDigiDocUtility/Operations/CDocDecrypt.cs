@@ -45,7 +45,7 @@ namespace NDigiDocUtility.Operations
 
             using(var fs = File.Create(outputUri))
             {
-                var bytes = new UTF8Encoding().GetBytes(decryptedContent);
+                var bytes = decryptedContent;
                 fs.Write(bytes, 0, bytes.Length);
             }
         }
