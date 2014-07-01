@@ -1,0 +1,8 @@
+NDigiDoc version 3.9 release notes
+--------------------------------------
+Changes compared to ver 1.0
+
+- Compression functionality during CDOC encryption process is deprecated, by default the data is never compressed. 
+- Added support for encrypting/decrypting BDOC documents. 
+	- Added BDOC mime-type "application/vnd.etsi.asic-e+zip" for encryption to MimeType.cs
+	- Removed conversion of the decrypted data to UTF-8 in CDoc.Decrypt(X509Certificate2 privateKey) method, changed the method's return type to byte[].
