@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?define IDCardFolder = "Estonian ID Card Development" ?>
+<?define ProductName = "Estonian ID Card .NET library for developers" ?>
+<?define ProductId = "{B6B44C89-FBE2-4c35-AD3D-E0E04EA55528}" ?>
+<?define ProductUpgradeCode = "{0EB300C1-B026-44df-8471-0451825BC564}" ?>
+<?define Version = "$(env.MSI_VERSION)"?>
+<?define IDDebugSymbolsLocation = "/install/debug-symbols" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Product Name="$(var.ProductName)" Id="*" UpgradeCode="$(var.ProductUpgradeCode)" Language="1033"
+           Version="$(var.Version)" Codepage="1251" Manufacturer="RIA">
+    <Package Keywords="Installer" Description="$(var.ProductName)" Comments="$(var.ProductName)" Manufacturer="RIA"
+             InstallerVersion="300" Compressed="yes"/>
+    <Media Id="1" Cabinet="Eesti_ID_kaart_ndigidoc_dev.cab" EmbedCab="yes" CompressionLevel="high"/>
+
+    <Property Id="REINSTALLMODE" Value="amus"/>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id='ProgramFilesFolder'>
+        <Directory Id="DEVPACKAGESFOLDER" Name="$(var.IDCardFolder)">
+          <Directory Id="APPLICATIONFOLDER" Name="ndigidoc">
+            <!--<Directory Id="DocumentationFolder" Name="documentation"/>-->
+            <Directory Id="SourceFolder" Name="source"/>
+            <Component Id="Binary" Guid="9A73047D-0DD0-468f-A54D-9DE4A3E83244">
+              <File Name="NDigiDoc.dll" Id="NDigiDoc.dll" Source="$(env.PREFIX)\IdCard\ndigidoc\NDigiDoc.dll" Checksum="yes" Vital="yes"/>
+              <File Name="Security.Cryptography.dll" Id="Security.Cryptography.dll" Source="$(env.PREFIX)\IdCard\ndigidoc\Security.Cryptography.dll" Checksum="yes" Vital="yes"/>
+              <File Name="log4net.dll" Id="log4net.dll" Source="$(env.PREFIX)\IdCard\ndigidoc\log4net.dll" Checksum="yes" Vital="yes"/>
+              <File Name="NDigiDocUtility.exe" Id="NDigiDocUtility.exe" Source="$(env.PREFIX)\IdCard\ndigidoc\NDigiDocUtility.exe" Checksum="yes" Vital="yes"/>
+              <File Name="log4n.xml" Id="log4n.xml" Source="$(env.PREFIX)\IdCard\ndigidoc\log4n.xml" Checksum="yes" Vital="yes"/>
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="InstallNdigidoc" Level="1" Title=".NET-teek">
+      <!--<ComponentGroupRef Id="Documentation"/>-->
+      <ComponentGroupRef Id="Source"/>
+      <ComponentRef Id="Binary"/>
+    </Feature>
+
+    <InstallExecuteSequence>
+      <FindRelatedProducts Before="LaunchConditions"/>
+      <RemoveExistingProducts After="InstallValidate"/>
+    </InstallExecuteSequence>
+
+    <Upgrade Id="$(var.ProductUpgradeCode)">
+      <UpgradeVersion Minimum="$(var.Version)" IncludeMinimum="no" OnlyDetect="yes"
+                      Property="SAME_OR_NEWER_VERSION_DETECTED"/>
+      <UpgradeVersion Minimum="0.0.0" IncludeMinimum="yes" Maximum="$(var.Version)" IncludeMaximum="yes"
+                      MigrateFeatures="yes" Property="OLDERVERSIONBEINGUPGRADED"/>
+    </Upgrade>
+  </Product>
+</Wix>
