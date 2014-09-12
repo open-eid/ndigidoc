@@ -20,6 +20,7 @@ SET CANDLE_CMD="%WIX_DIR%\candle.exe"
 SET LIGHT_CMD="%WIX_DIR%\light.exe"
 
 echo "Packaging NDigiDoc.dll"
+cd %GIT_BUILD_DIR%
 %HEAT_CMD% dir %sourceLocation% -cg Source -gg -scom -sreg -sfrag -srd -dr SourceFolder -var env.sourceLocation -out SourceFilesFragment.wxs
 %CANDLE_CMD% ndigidoc-dev.wxs SourceFilesFragment.wxs -v -ext WixIIsExtension
 %LIGHT_CMD% -out %INSTALL_BIN_DIR%\Eesti_ID_kaart-NET-teek-arendajale-%MSI_VERSION%.%build_number%.msi ndigidoc-dev.wixobj SourceFilesFragment.wixobj -v -ext WixIIsExtension
