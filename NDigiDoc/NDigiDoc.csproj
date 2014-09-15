@@ -60,11 +60,11 @@
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\log4net\log4net.dll</HintPath>
+      <HintPath>c:\install\log4net\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Security.Cryptography, Version=1.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\clrsecurity\Security.Cryptography.dll</HintPath>
+      <HintPath>c:\install\clrsecurity\Security.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

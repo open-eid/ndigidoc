@@ -7,11 +7,11 @@ in Logger.cs
 Preparation
 Download the following libraries
 1) log4net - http://logging.apache.org/log4net/ and place it under
-<source-dir>\log4net\log4net.dll
-<source-dir>\log4net\log4net.xml
+c:\install\log4net\log4net.dll
+c:\install\log4net\log4net.xml
 2) CLR Security - http://clrsecurity.codeplex.com/ and place it under
-<source-dir>\clrsecurity\Security.Cryptography.dll
-<source-dir>\clrsecurity\Security.Cryptography.xml
+c:\install\clrsecurity\Security.Cryptography.dll
+c:\install\clrsecurity\Security.Cryptography.xml
 
 To build use configuration Release or Debug in VisualStudio.
 On commandline building can be done by:

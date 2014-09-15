@@ -24,8 +24,6 @@ mkdir %INSTALL_SRC_DIR%
 
 echo "Copying sources to install src dir"
 xcopy /Y /E %GIT_SRC_DIR% %INSTALL_SRC_DIR%
-rmdir /S /Q %INSTALL_SRC_DIR%\clrsecurity
-rmdir /S /Q %INSTALL_SRC_DIR%\log4net
 rmdir /S /Q %INSTALL_SRC_DIR%\NDigiDoc\bin
 rmdir /S /Q %INSTALL_SRC_DIR%\NDigiDoc\obj
 rmdir /S /Q %INSTALL_SRC_DIR%\NDigiDocUtil\bin
