@@ -7,6 +7,7 @@ history also copied to git repository.
 - dependent libraries log4net and clrsecurity removed from source code.
 Please see README-DevInfo.txt how to download and install them prior to
 building the library.
+- changed EncryptionProperties container from List to Dictionary so that there could be more than one EncryptionProperty with the same name.
 
 NDigiDoc version 3.9 release notes
 --------------------------------------
