@@ -1,6 +1,6 @@
 NDigiDoc developers info
 
-You need Microsoft VisualStodio 2012 to build. This library uses .NET framework 3.5.
+You need Microsoft VisualStodio 2012 to build. This library uses .NET framework 4.0.
 Also uses log4net library 1.2.11. This dependency can be removed with a small code change
 in Logger.cs
 
