@@ -16,4 +16,4 @@ You need the following dependent librarys to build ndigidoc:
 - iclrsecurity - https://clrsecurity.codeplex.com/
 
 
-Contact for assistance by email abi@id.ee or http://www.id.ee
+Contact our support via [www.id.ee](http://www.id.ee) for assistance.
